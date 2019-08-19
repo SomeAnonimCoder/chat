@@ -1,4 +1,4 @@
-#HEADER
+/*HEADER*/
 .head{
     width: 75%;
     background-color: #778899;
@@ -6,17 +6,20 @@
     text-align: center;
     padding: 20px;
     font-size:36px;
+    height:30%;
 }
-#MAIN CONTENT
+
+/*MAIN CONTENT*/
 body{
     background-color:#DCDCDC;
     margin:auto;
 }
 
-#MENU AND CENER
+/*MENU AND CENTER*/
 .center{
     margin:10px;
     width:70%;
+    height:60%;
     float:right;
     background-color:#778899;
 }
@@ -30,7 +33,7 @@ body{
 
 }
 
-#MESSAGES AND ONE MESSAGE
+/*MESSAGES AND ONE MESSAGE*/
 .message-container{
     overflow-x:scroll;
     height:400px;
@@ -44,12 +47,13 @@ p.msg{
     background-color:#808080;
 }
 
-#EDIT AREA, TEXT FIELD AND SEND BUTTON
+/*EDIT AREA, TEXT FIELD AND SEND BUTTON*/
 .message-edit{
-    margin:10px;
-    padding:10px;
-    width:75%;
-    height:100%;
+    /*real width:70%*/
+    margin:1%;
+    padding:1%;
+    width:68%;
+    height:88%;
     border-radius:10px;
     float:left;
     background-color:#808080;
@@ -62,8 +66,15 @@ p.msg{
 
 }
 
-.send-icon{
-height=50px;
-width=50px;
+.send-wrap{
+    width:25%;
+    height:100%;
+    float:right;
 }
+
+.send-icon{
+    vertical-align:middle;
+    float:right;
+    width:100%;
+    }
 

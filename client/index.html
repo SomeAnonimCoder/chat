@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
+<div class="head">
+    <div>
+        <h1>Чат без названия</h1>
+    </div>
+</div>
 
 <div class="left-menu">
     <ul>
@@ -16,8 +21,10 @@
 <div class="center">
     <div id="messages" class="message-container"></div>
     <div class="edit-area">
-        <textarea id="message" class="message-edit" style="float:left"></textarea>
-        <img id="send" height="100%" src="send.jpg" style="float:right">
+        <textarea id="message" class="message-edit"></textarea>
+        <div class="send-wrap">
+            <img id="send" class="send-icon" src="send.jpg">
+        </div>
     </div>
 </div>
 

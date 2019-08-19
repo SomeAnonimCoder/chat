@@ -1,3 +1,5 @@
+name = window.prompt("Pick a username:")
+
 let socket = new WebSocket("ws://localhost:8081");
 let msg = document.getElementById("message");
 let msgs = document.getElementById("messages");
@@ -33,3 +35,5 @@ socket.onclose = function(event) {
 socket.onerror = function(error) {
   alert(`[error] ${error.message}`);
 };
+
+
