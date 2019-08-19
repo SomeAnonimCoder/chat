@@ -2,8 +2,10 @@ import re
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from os import curdir, sep
 
-class testHTTPServer_RequestHandler(BaseHTTPRequestHandler):
+ROOT = curdir + sep + "client"
 
+
+class testHTTPServer_RequestHandler(BaseHTTPRequestHandler):
     # GET
     def do_GET(self):
         if self.path == "/":
@@ -33,7 +35,7 @@ class testHTTPServer_RequestHandler(BaseHTTPRequestHandler):
 
             if sendReply == True:
                 # Open the static file requested and send it
-                f = open(curdir + sep + self.path, "rb")
+                f = open(ROOT + sep + self.path, "rb")
                 self.send_response(200)
                 self.send_header('Content-type', mimetype)
                 self.end_headers()

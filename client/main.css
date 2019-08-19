@@ -1,0 +1,69 @@
+#HEADER
+.head{
+    width: 75%;
+    background-color: #778899;
+    margin:auto;
+    text-align: center;
+    padding: 20px;
+    font-size:36px;
+}
+#MAIN CONTENT
+body{
+    background-color:#DCDCDC;
+    margin:auto;
+}
+
+#MENU AND CENER
+.center{
+    margin:10px;
+    width:70%;
+    float:right;
+    background-color:#778899;
+}
+
+.left-menu{
+    margin:10px;
+    padding:10px;
+    width:20%;
+    float:left;
+    background-color:#778899;
+
+}
+
+#MESSAGES AND ONE MESSAGE
+.message-container{
+    overflow-x:scroll;
+    height:400px;
+}
+
+
+p.msg{
+    margin:10px;
+    padding:10px;
+    border-radius:10px;
+    background-color:#808080;
+}
+
+#EDIT AREA, TEXT FIELD AND SEND BUTTON
+.message-edit{
+    margin:10px;
+    padding:10px;
+    width:75%;
+    height:100%;
+    border-radius:10px;
+    float:left;
+    background-color:#808080;
+}
+
+
+.edit-area{
+    height:300px;
+    background-color:#778899;
+
+}
+
+.send-icon{
+height=50px;
+width=50px;
+}
+
