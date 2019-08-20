@@ -5,8 +5,6 @@ from datetime import datetime
 import websockets
 
 # TODO: maybe use db
-
-# TODO: store also username(see TODO in chat.js)
 msgs = []
 clients = set()
 
@@ -20,7 +18,7 @@ class Client:
 class Message:
     def __init__(self, author, text):
         self.time = datetime.now()
-        self.text = text
+        self.text = text.replace("\n", "<br>")
         self.author = author
 
     def to_html(self):
@@ -64,7 +62,8 @@ async def note_all():
         await trysend(i, json.dumps([i.to_html() for i in msgs]))
 
 
-start_server = websockets.serve(echo, "localhost", 8081)
+if __name__=="__main__":
+    start_server = websockets.serve(echo, "localhost", 8081)
 
-asyncio.get_event_loop().run_until_complete(start_server)
-asyncio.get_event_loop().run_forever()
+    asyncio.get_event_loop().run_until_complete(start_server)
+    asyncio.get_event_loop().run_forever()

@@ -5,6 +5,7 @@ let msgs = document.getElementById("messages");
 let sendBtn = document.getElementById("send");
 sendBtn.onclick = function(){
     socket.send(msg.value);
+    msg.value="";
 }
 
 socket.onopen=function(){
@@ -28,5 +29,3 @@ socket.onclose = function(event) {
 socket.onerror = function(error) {
   alert(`[error] ${error.message}`);
 };
-
-
