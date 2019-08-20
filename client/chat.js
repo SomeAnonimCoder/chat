@@ -1,5 +1,4 @@
-name = window.prompt("Pick a username:")
-
+let name = window.prompt("Pick a username:")
 let socket = new WebSocket("ws://localhost:8081");
 let msg = document.getElementById("message");
 let msgs = document.getElementById("messages");
@@ -9,27 +8,21 @@ sendBtn.onclick = function(){
 }
 
 socket.onopen=function(){
-socket.send("")
+socket.send(name)
 }
 socket.onmessage = function(event) {
     json = JSON.parse(event.data)
     html = ""
     for(i=0;i<json.length;i++){
-        html += "<p class=msg>";
         html+=json[i];
-        html+="<\p>";
         }
     msgs.innerHTML = html;
 };
 
 socket.onclose = function(event) {
-  if (event.wasClean) {
-    alert(`[close] Соединение закрыто чисто, код=${event.code} причина=${event.reason}`);
-  } else {
-    // например, сервер убил процесс или сеть недоступна
-    // обычно в этом случае event.code 1006
-    alert('[close] Соединение прервано');
-  }
+    if(confirm("Connection interrupted. Reconnect?")){
+        socket = new WebSocket("ws://localhost:8081");
+    }
 };
 
 socket.onerror = function(error) {
