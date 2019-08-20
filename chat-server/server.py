@@ -1,7 +1,7 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from os import curdir, sep
 
-ROOT = curdir + sep + "client"
+ROOT = curdir + sep + "web-client"
 
 
 class testHTTPServer_RequestHandler(BaseHTTPRequestHandler):

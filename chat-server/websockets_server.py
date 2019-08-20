@@ -46,7 +46,7 @@ async def echo(websocket, path):
             clients.add(Client(name, websocket))
         else:
             msgs.append(Message(get_author_by_socket(websocket), message))
-            await note_all()
+        await note_all()
 
 
 async def trysend(client, msg):
