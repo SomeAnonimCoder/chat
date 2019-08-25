@@ -5,21 +5,24 @@ username.innerHTML = ("Howdy, "+name + "!");
 let msg = document.getElementById("message");
 let msgs = document.getElementById("messages");
 let sendBtn = document.getElementById("send");
+let people = document.getElementById("people")
 sendBtn.onclick = function(){
     socket.send(msg.value);
     msg.value="";
 }
 
-socket.onopen=function(){
+socket.onopen = function(){
 socket.send(name)
 }
+
 socket.onmessage = function(event) {
     if (event.data=="ERR:EXISTING_NAME"){
     window.confirm("This name already exists in chat!Take another?")
     }
     json = JSON.parse(event.data)
     html = ""
-    for(i=0;i<json.length;i++){
+    people.innerHTML = "<h3> in chat now:</h3>" + json[0]
+    for(i=1;i<json.length;i++){
         html+=json[i];
         }
     msgs.innerHTML = html;
@@ -27,7 +30,7 @@ socket.onmessage = function(event) {
 
 socket.onclose = function(event) {
     if(confirm("Connection interrupted. Reconnect?")){
-        socket = new WebSocket("ws://localhost:8081");
+        location.reload()
     }
 };
 

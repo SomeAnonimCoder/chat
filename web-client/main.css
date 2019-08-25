@@ -1,5 +1,6 @@
 * {
 font-family: fantasy;
+border-radius: 10px ;
 }
 
 /*HEADER*/
@@ -13,7 +14,6 @@ font-family: fantasy;
     padding: 20px;
     font-size:36px;
     height:30%;
-    border-radius:30px;
 }
 
 /*MAIN CONTENT*/
@@ -25,11 +25,10 @@ body{
 .center{
     background: linear-gradient(to right, #99aabb, #556677);
     margin:10px;
-    width:70%;
+    width:75%;
     height:50%;
     float:right;
     border:3px groove ghostwhite;
-    border-radius:30px;
 }
 
 .left-menu{
@@ -38,7 +37,6 @@ body{
     padding:10px;
     width:20%;
     border:3px groove ghostwhite;
-    border-radius:30px;
     float:left;
 }
 
@@ -49,15 +47,27 @@ body{
     overflow-x:auto;
     height:400px;
     background: linear-gradient(to right, #bbccdd, #99aabb);
-    border-radius:30px;
 }
 
 
 .msg{
     margin:10px;
     padding:10px;
-    border-radius:30px;
     background: linear-gradient(to left, #445566, #556677);
+}
+
+.msg:hover{
+        background: linear-gradient(to left, #556677, #667788);
+
+}
+
+.sysop{
+    background:linear-gradient(to left, #886666, #AA9999);
+}
+
+.sysop:hover{
+    background:linear-gradient(to left, #997777, #BBAAAA);
+
 }
 
 /*EDIT AREA, TEXT FIELD AND SEND BUTTON*/
@@ -67,7 +77,6 @@ body{
     padding:1%;
     width:68%;
     height:88%;
-    border-radius:10px;
     float:left;
     background: linear-gradient(to left, #445566, #556677);
 }
@@ -97,8 +106,9 @@ ul {
     padding: 0;
 }
 li {
-    background: linear-gradient(to right, #aabbcc, #778899);
-    padding: 5px 10px;
+    background: linear-gradient(to right, #8899aa, #778899);
+    margin:10px 0;
+    padding:5px;
     border: 3px solid #DDDDDD;
 }
 
@@ -128,6 +138,12 @@ li {
 
 #username{
      background: linear-gradient(to right, #aabbcc, #778899);
+    padding:10px;
+    border: 3px solid #DDDDDD;
+}
+
+#people{
+    background: linear-gradient(to right, #aabbcc, #778899);
     padding:10px;
     border: 3px solid #DDDDDD;
 }
