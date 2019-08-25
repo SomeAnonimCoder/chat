@@ -35,17 +35,27 @@ class Message:
 def get_author_by_socket(socket):
     for elem in clients:
         if elem.socket == socket:
-            return elem.name
+            return elem
     return None
 
 
-async def echo(websocket, path):
+def get_author_by_name(name):
+    for elem in clients:
+        if elem.name == name:
+            return elem
+    return None
+
+
+async def process_message(websocket, path):
     async for message in websocket:
         if get_author_by_socket(websocket) is None:
             name = message
-            clients.add(Client(name, websocket))
+            if get_author_by_name(name) is None:
+                clients.add(Client(name, websocket))
+            else:
+                await(websocket.send("ERR:EXISTING_NAME"))
         else:
-            msgs.append(Message(get_author_by_socket(websocket), message))
+            msgs.append(Message(get_author_by_socket(websocket).name, message))
         await note_all()
 
 
@@ -62,8 +72,8 @@ async def note_all():
         await trysend(i, json.dumps([i.to_html() for i in msgs]))
 
 
-if __name__=="__main__":
-    start_server = websockets.serve(echo, "localhost", 8081)
+if __name__ == "__main__":
+    start_server = websockets.serve(process_message, "localhost", 8081)
 
     asyncio.get_event_loop().run_until_complete(start_server)
     asyncio.get_event_loop().run_forever()

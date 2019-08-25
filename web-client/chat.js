@@ -1,5 +1,7 @@
 let name = window.prompt("Pick a username:")
 let socket = new WebSocket("ws://localhost:8081");
+let username = document.getElementById("username");
+username.innerHTML = ("Howdy, "+name + "!");
 let msg = document.getElementById("message");
 let msgs = document.getElementById("messages");
 let sendBtn = document.getElementById("send");
@@ -12,6 +14,9 @@ socket.onopen=function(){
 socket.send(name)
 }
 socket.onmessage = function(event) {
+    if (event.data=="ERR:EXISTING_NAME"){
+    window.confirm("This name already exists in chat!Take another?")
+    }
     json = JSON.parse(event.data)
     html = ""
     for(i=0;i<json.length;i++){
